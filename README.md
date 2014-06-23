@@ -5,7 +5,9 @@ Capicom Java wrapper for Microsoft capicom library
 
 Official doc: http://msdn.microsoft.com/en-US/en-en/library/windows/desktop/aa382434(v=vs.85).aspx
 
-** How to use it? **
+How to use it?
+===============
+
 <b>Getting certificates from windows store:</b>
 
 ```JAVA
