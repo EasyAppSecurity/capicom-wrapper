@@ -11,8 +11,8 @@ How to use it?
 <b>Getting certificates from windows store:</b>
 
 ```JAVA
-//2 � storeLocation
-//�My� � storeName
+//2  - storeLocation
+//"My" - storeName
 //2 - openMode
 CapicomStore store = new CapicomStore(2, "My", 2);
 CapicomCertificate[] certs = store.getCertificates().getAll();
@@ -25,8 +25,8 @@ for (CapicomCertificate capicomCertificate : certs) {
 <b>Sign operation:</b>
 
 ```JAVA
-//2 � storeLocation
-//�My� � storeName
+//2  - storeLocation
+//"My" - storeName
 //2 - openMode
 CapicomStore store = new CapicomStore(2, "My", 2);
 //1 � cetificate number in windows store
@@ -35,7 +35,7 @@ CapicomSigner signer = new CapicomSigner();
 signer.setCertificate(cert);
 
 CapicomSignedData signedData = new CapicomSignedData();
-//�test� � signing string
+//"test" - signing string
 signedData.setContent("test");
 
 CapicomAttribute signingTime = new CapicomAttribute();
