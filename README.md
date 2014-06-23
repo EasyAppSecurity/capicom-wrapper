@@ -29,7 +29,7 @@ for (CapicomCertificate capicomCertificate : certs) {
 //"My" - storeName
 //2 - openMode
 CapicomStore store = new CapicomStore(2, "My", 2);
-//1 � cetificate number in windows store
+//1 - certificate number in windows store
 CapicomCertificate cert = store.getCertificates().getAll()[1];
 CapicomSigner signer = new CapicomSigner();
 signer.setCertificate(cert);
