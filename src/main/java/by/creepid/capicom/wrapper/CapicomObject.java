@@ -17,7 +17,7 @@ import com.jacob.com.Dispatch;
 public abstract class CapicomObject {
 
     private static String X86_PATH = "/x86/jacob-1.18-M2-x86.dll";
-    private static String X64_PATH = "/x86/jacob-1.18-M2-x64.dll";
+    private static String X64_PATH = "/x64/jacob-1.18-M2-x64.dll";
 
     private static void loadLibraries() {
         String path = (Platform.is64Bit()) ? X64_PATH : X86_PATH;
