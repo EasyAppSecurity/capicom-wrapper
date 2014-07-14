@@ -7,6 +7,12 @@ Official doc: http://msdn.microsoft.com/en-US/en-en/library/windows/desktop/aa38
 
 How to use it?
 ===============
+<b>On 64-bit platform:</b>
+1. Download CAPICOM – http://www.microsoft.com/en-us/download/details.aspx?id=25281
+2. Open an administrative command prompt
+3. cd to “C:\Program Files (x86)\Microsoft CAPICOM 2.1.0.2 SDK\Lib\X86”
+4. copy CAPICOM.DLL %windir%\syswow64
+5. %windir%\syswow64\regsvr32.exe %windir%\syswow64\capicom.dll
 
 <b>Getting certificates from windows store:</b>
 
@@ -47,5 +53,33 @@ signer.getAuthenticatedAttributes().add(signingTime);
 //return signature, throws InvalidCertificate otherwice 
 String  signature = signedData.sign(signer, true);
 
+```
+
+<b>Verify operation:</b>
+```JAVA
+String signature = "..."; //signature in base64
+boolean isDetached = true;
+
+CapicomSignedData signedData = new CapicomSignedData();
+signedData.setContent("test");
+
+try {
+     signedData.verify(signature, isDetached);
+} catch (InvalidSignature ex) {
+    //in wrong signature case
+}
+   
+//get certificate information        
+CapicomCertificate cert = signedData.getCertificates().getAll()[0];
+cert.display();
+
+//get subject
+String subject = signedData.getCertificates().getAll()[0].getSubjectName();
+
+CapicomSigner signer = signedData.getSigners()[0];
+CapicomAttribute attr = signer.getAuthenticatedAttributes().getAll()[0];
+
+//sign date...
+Date date = attr.getValue().getDateContent();
 ```
 
