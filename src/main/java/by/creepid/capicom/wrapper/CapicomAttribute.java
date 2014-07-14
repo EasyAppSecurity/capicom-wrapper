@@ -5,6 +5,8 @@
  */
 package by.creepid.capicom.wrapper;
 
+import by.creepid.capicom.wrapper.data.CapicomData;
+import by.creepid.capicom.wrapper.data.VariantAdapter;
 import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.Dispatch;
 import com.jacob.com.Variant;
@@ -39,8 +41,8 @@ public class CapicomAttribute extends CapicomObject {
         attr.setProperty("Name", name.getValue());
     }
 
-    public Object getValue() {
-        return attr.getProperty("Value").getVariant();
+    public CapicomData getValue() {
+        return new VariantAdapter(attr.getProperty("Value"));
     }
 
     public final void setValue(Object object) {

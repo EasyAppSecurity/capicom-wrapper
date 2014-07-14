@@ -7,6 +7,7 @@ package by.creepid.capicom.wrapper;
 
 import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.Dispatch;
+import java.util.Date;
 
 /**
  *
@@ -33,7 +34,7 @@ public class CapicomCertificate extends CapicomObject {
     }
 
     public boolean hasPrivateKey() {
-        return cert.invoke("HasPrivateKey").toBoolean();
+        return cert.invoke("HasPrivateKey").getBoolean();
     }
 
     public byte[] export() {
@@ -42,6 +43,26 @@ public class CapicomCertificate extends CapicomObject {
 
     public CapicomPublicKey getPublicKey() {
         return new CapicomPublicKey(cert.invoke("PublicKey").getDispatch());
+    }
+
+    public String getIssuerName() {
+        return cert.getPropertyAsString("IssuerName");
+    }
+
+    public String getSerialNumber() {
+        return cert.getPropertyAsString("SerialNumber");
+    }
+
+    public Date getValidFromDate() {
+        return cert.getProperty("ValidFromDate").getJavaDate();
+    }
+
+    public Date getValidToDate() {
+        return cert.getProperty("ValidToDate").getJavaDate();
+    }
+
+    public CapicomKeyUsage getKeyUsage() {
+        return new CapicomKeyUsage(cert.invokeGetComponent("KeyUsage").getObject());
     }
 
     @Override

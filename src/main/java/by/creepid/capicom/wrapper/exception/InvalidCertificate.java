@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package by.creepid.capicom.wrapper.cert;
+package by.creepid.capicom.wrapper.exception;
 
+import by.creepid.capicom.wrapper.cert.CertStatus;
 import java.security.GeneralSecurityException;
 
 /**

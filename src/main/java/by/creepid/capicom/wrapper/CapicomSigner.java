@@ -21,6 +21,10 @@ public class CapicomSigner extends CapicomObject {
         signer = new ActiveXComponent("CAPICOM.Signer");
     }
 
+    CapicomSigner(Dispatch dispatch) {
+        this.signer = new ActiveXComponent(dispatch);
+    }
+
     public void setCertificate(CapicomCertificate cert) {
         signer.setProperty("Certificate", cert.getObject());
     }
