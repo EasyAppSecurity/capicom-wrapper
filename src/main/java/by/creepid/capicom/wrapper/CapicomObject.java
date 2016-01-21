@@ -6,7 +6,6 @@
 package by.creepid.capicom.wrapper;
 
 import by.creepid.capicom.wrapper.utils.NativeUtils;
-import by.creepid.capicom.wrapper.utils.Platform;
 import com.jacob.com.Dispatch;
 
 /**
@@ -27,7 +26,7 @@ public abstract class CapicomObject {
     static {
         loadLibraries();
     }
-
+    
     abstract Dispatch getObject();
 
 }

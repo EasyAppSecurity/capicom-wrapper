@@ -5,8 +5,12 @@
  */
 package by.creepid.capicom.wrapper;
 
+import by.creepid.capicom.wrapper.cert.KeyIdentifierExtension;
+import by.creepid.capicom.wrapper.cert.X509CertificateAdapter;
 import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.Dispatch;
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+import java.security.cert.X509Certificate;
 import java.util.Date;
 
 /**
@@ -37,8 +41,12 @@ public class CapicomCertificate extends CapicomObject {
         return cert.invoke("HasPrivateKey").getBoolean();
     }
 
-    public byte[] export() {
+    public final byte[] export() {
         return cert.invoke("Export").getString().getBytes();
+    }
+
+    public final String exportString() {
+        return cert.invoke("Export").getString();
     }
 
     public CapicomPublicKey getPublicKey() {
@@ -68,6 +76,16 @@ public class CapicomCertificate extends CapicomObject {
     @Override
     public Dispatch getObject() {
         return cert.getObject();
+    }
+
+    public X509Certificate getX509Certificate() {
+        byte[] decoded = Base64.decode(exportString());
+        return new X509CertificateAdapter(decoded);
+    }
+
+    public KeyIdentifierExtension getKeyIdentifierExtension() {
+        byte[] decoded = Base64.decode(exportString());
+        return new X509CertificateAdapter(decoded);
     }
 
 }
