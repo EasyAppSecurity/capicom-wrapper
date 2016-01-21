@@ -6,7 +6,6 @@
 package by.creepid.capicom.wrapper.cert;
 
 import by.creepid.capicom.wrapper.CapicomCertificate;
-import by.creepid.capicom.wrapper.utils.CertUtil;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import java.math.BigInteger;
 import java.security.InvalidKeyException;
