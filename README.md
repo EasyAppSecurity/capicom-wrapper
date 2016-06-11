@@ -7,6 +7,11 @@ Official doc: http://msdn.microsoft.com/en-US/en-en/library/windows/desktop/aa38
 
 How to use it?
 ===============
+<b>On 32-bit platform:</b><br/><br/>
+1. Download CAPICOM – http://www.microsoft.com/en-us/download/details.aspx?id=25281<br/>
+2. Open an administrative command prompt<br/>
+3. Execute regsvr32.exe capicom.dll
+
 <b>On 64-bit platform:</b><br/><br/>
 1. Download CAPICOM – http://www.microsoft.com/en-us/download/details.aspx?id=25281<br/>
 2. Open an administrative command prompt<br/>
@@ -14,6 +19,31 @@ How to use it?
 4. copy CAPICOM.DLL %windir%\syswow64</br><br/>
 5. %windir%\syswow64\regsvr32.exe %windir%\syswow64\capicom.dll<br/>
 
+<b>Add in your project:</b><br/><br/>
+
+Repository: 
+```xml
+<repository>
+   <id>capicom-wrapper-mvn-repo</id>
+   <url>https://raw.github.com/creepid/capicom-wrapper/mvn-repo/</url>
+   <snapshots>
+       <enabled>true</enabled>
+       <updatePolicy>always</updatePolicy>
+   </snapshots>
+</repository>
+```
+
+And dependency:
+```xml
+<dependency>
+   <groupId>by.creepid</groupId>
+   <artifactId>capicom-wrapper</artifactId>
+   <version>0.1</version>
+</dependency>
+```
+
+Code examples
+===============
 <b>Getting certificates from windows store:</b>
 
 ```JAVA
@@ -82,4 +112,12 @@ CapicomAttribute attr = signer.getAuthenticatedAttributes().getAll()[0];
 //sign date...
 Date date = attr.getValue().getDateContent();
 ```
+<b>Getting Java java.security.cert.X509Certificate:</b>
+```JAVA
+CapicomCertificate[] certs = ...;
 
+for (CapicomCertificate capicomCertificate : certs) {
+   X509Certificate x509Cert = capicomCertificate.getX509Certificate();
+   //...           
+}
+```
