@@ -3,3 +3,5 @@ target/*
 nb-configuration.xml
 .project
 .classpath
+.idea/
+capicom-wrapper.iml
