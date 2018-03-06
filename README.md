@@ -58,6 +58,24 @@ for (CapicomCertificate capicomCertificate : certs) {
 }
 ```
 
+<b>Encryption:</b>
+
+```JAVA
+CapicomEncrypted capicomEncrypted = new CapicomEncrypted();
+capicomEncrypted.setAlgoritmName();
+capicomEncrypted.setContent("test");
+capicomEncrypted.setSecret("test");
+String encrypt = capicomEncrypted.encrypt();
+System.out.println("Encrypted: " + encrypt);
+
+CapicomEncrypted capicomDecrypted = new CapicomEncrypted();
+capicomDecrypted.setAlgoritmName();
+capicomDecrypted.setSecret("test");
+capicomDecrypted.decrypt(encrypt);
+String decrypt = capicomDecrypted.getContent();
+System.out.println("Decrypted: " + encrypt);
+```
+
 <b>Sign operation:</b>
 
 ```JAVA
