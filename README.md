@@ -42,6 +42,9 @@ And dependency:
 </dependency>
 ```
 
+Or just download the [Jar-file](https://github.com/creepid/capicom-wrapper/releases/download/0.2/capicom-wrapper-0.2.jar).
+
+
 Code examples
 ===============
 All the examples may be found here: https://github.com/creepid/capicom-wrapper-examples
