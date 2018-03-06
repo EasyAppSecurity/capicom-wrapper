@@ -38,7 +38,7 @@ And dependency:
 <dependency>
    <groupId>by.creepid</groupId>
    <artifactId>capicom-wrapper</artifactId>
-   <version>0.1</version>
+   <version>0.2</version>
 </dependency>
 ```
 
