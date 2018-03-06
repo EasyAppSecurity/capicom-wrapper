@@ -44,6 +44,8 @@ And dependency:
 
 Code examples
 ===============
+All the examples may be found here: https://github.com/creepid/capicom-wrapper-examples
+
 <b>Getting certificates from windows store:</b>
 
 ```JAVA
@@ -73,7 +75,7 @@ capicomDecrypted.setAlgoritmName();
 capicomDecrypted.setSecret("test");
 capicomDecrypted.decrypt(encrypt);
 String decrypt = capicomDecrypted.getContent();
-System.out.println("Decrypted: " + encrypt);
+System.out.println("Decrypted: " + decrypt);
 ```
 
 <b>Sign operation:</b>
