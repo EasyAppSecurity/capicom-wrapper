@@ -5,3 +5,9 @@ nb-configuration.xml
 .classpath
 .idea/
 capicom-wrapper.iml
+
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/

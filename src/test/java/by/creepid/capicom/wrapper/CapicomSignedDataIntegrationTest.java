@@ -75,11 +75,13 @@ public class CapicomSignedDataIntegrationTest extends TestCase {
         String signature = null;
         try {
             signature = signedData.sign(signer, true);
+
+            assertNotNull(signature);
+            assertTrue(signature.length() > 30);
         } catch (InvalidCertificate ex) {
             fail(ex.getMessage());
         }
-        assertNotNull(signature);
-        assertTrue(signature.length() > 30);
+
     }
 
     /**
